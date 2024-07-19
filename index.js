@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 
-const port  = 4000;
+//const port  = 4000;'
+const port = process.env.PORT || 4000;
+
 const http = require("http"); 
 const path  =  require("path");
 const server = http.createServer(app);
+require('dotenv').config(); 
 
 
 app.get('/',(req,res)=>{
@@ -21,38 +24,6 @@ let allMessages=[];
 const cors = require("cors");
 //app.use(express.static(path.join(__dirname, 'public')));
 
-//code to connect with index.html
-// app.get('/',(req,res)=>{
-
-//     var options  = {
-//         root:path.join(__dirname)
-//     }
-//     var fileName = 'index.html';
-
-//    res.sendFile(fileName,options)
-//    // sendFile is a method which accepts the fileName and the directory options
-
-// });
-
-
-
-
-
-// // Serve Angular frontend (development)
-// app.use(express.static(path.join(__dirname, '../AngularClient/src')));
-
-
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../AngularClient/src/index.html'));
-// });
-
-
-// app.use(cors({
-//     origin : 'http://localhost:4200',
-//     methods : ['GET','POST'],
-//     allowedHeaders :['Content-Type'] ,
-//     credentials :  true
-// }))
 // app.use(cors());
 // Example allowing only specific origins and methods
 const corsOptions = {
