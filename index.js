@@ -6,6 +6,11 @@ const http = require("http");
 const path  =  require("path");
 const server = http.createServer(app);
 
+
+app.get('/',(req,res)=>{
+    res.send(' <h1> Hey, Welcome to my world </h1>')
+    })
+
 //  const io  = require("socket.io")(http);
 const socketIo  = require("socket.io")
 const io = socketIo(server, {
