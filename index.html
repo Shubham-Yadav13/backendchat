@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Tech World</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>Tech World</h3>
+    
+
+    <script>
+        var socket  = io();
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            // console.log(val)
+        });
+
+        socket.on('message',(data)=>{
+            document.write(data)
+        })
+
+
+        socket.emit('messageFromClient', 'Hello from Client!');
+
+     //message is inbuilt variable for getting the data response come from the server
+
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+        });
+    </script>
+</body>
+</html>
